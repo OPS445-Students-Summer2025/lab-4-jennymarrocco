@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 
 def join_lists(l1, l2):
-    # Return a list with all unique values from both lists
-    return sorted(list(set(l1 + l2)))
+    # Return a list that contains every unique value from both lists (set union)
+    return list(set(l1) | set(l2))
 
 def match_lists(l1, l2):
-    # Return a list of common elements
-    return sorted(list(set(l1).intersection(set(l2))))
+    # Return a list that contains values found in both lists (set intersection)
+    return list(set(l1) & set(l2))
 
 def diff_lists(l1, l2):
-    # Return a list of elements not shared between the two
-    return sorted(list(set(l1).symmetric_difference(set(l2))))
+    # Return a list of values that are not shared between both lists (symmetric difference)
+    return list(set(l1) ^ set(l2))
 
 if __name__ == '__main__':
     list1 = list(range(1,10))
@@ -20,3 +20,4 @@ if __name__ == '__main__':
     print('join: ', join_lists(list1, list2))
     print('match: ', match_lists(list1, list2))
     print('diff: ', diff_lists(list1, list2))
+
